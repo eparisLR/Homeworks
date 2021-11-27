@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        python-version: [3.9]
+        python-version: [3.9.9]
     steps:
     - uses: actions/checkout@v2
 
@@ -28,4 +28,4 @@ jobs:
     # Verifying the code
     - name: Verifying the code
       run: |
-        pylint herosite/heroapi || pylint-exit $?
+        pylint app || pylint-exit $?
