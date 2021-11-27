@@ -1,0 +1,6 @@
+fastapi
+motor
+pydantic
+uvicorn
+pylint
+pylint-exit
