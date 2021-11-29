@@ -1,10 +1,12 @@
+# Contributing
+
 :rotating_light: : Issues/Bugs
 :sparkles: : New features
 :bug: : Bug fix
 :art: : Updating style/ UI
 :memo: : Editing doc
 
-#Installation
+# Installation
 
 Create a virtualenv by using this command :
 ``

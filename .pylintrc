@@ -1,4 +1,6 @@
 [MASTER]
+# Extension whitelist
+extension-pkg-whitelist=pydantic
 
 # Specify a configuration file.
 #rcfile=
