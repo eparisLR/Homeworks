@@ -2,3 +2,5 @@ motor==2.3.0
 pymongo==3.11.1
 regex==2020.11.13
 pydantic[email]
+pylint
+pylint-exit
