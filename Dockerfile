@@ -1,10 +1,8 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-slim
 
-WORKDIR /app
+COPY ./app /app/app
+COPY requirements.txt /tmp/requirements.txt
 
-RUN apt update
+RUN pip install --no-cache-dir --disable-pip-version-check --upgrade -r /tmp/requirements.txt
 
-ADD requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-ADD ./app ./app
+CMD ["/start-reload.sh"]

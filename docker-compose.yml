@@ -1,9 +1,23 @@
+version: "3.6"
+
 services:
-  api:
+  homeworks-api:
     build: .
-    container_name: fastapi-application
-    environment:
-      PORT: 8000
+    container_name: homeworksApi
+    env_file:
+      - ./.env
     ports:
-      - '8000:8000'
-    restart: "no"
+      - '8080:80'
+    volumes:
+      - ./app:/app/app
+  
+  homeworks-mongodb:
+    image: mongo
+    container_name: homeworksMongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - 'projetdata:/data/db'
+
+volumes:
+  projetdata:

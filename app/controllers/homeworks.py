@@ -33,7 +33,7 @@ async def get_ufo(homework_id):
     return "UFO doesn't exist"
 
 
-@router.post("/", response_description="Homework data added into the database", response_model=HomeworkModel)
+@router.post("/", response_description="Homework data added into the database")
 async def post_ufo(homework: HomeworkModel = Body(...)):
     homework = jsonable_encoder(homework)
     new_homework = await insert_homework(homework)

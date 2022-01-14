@@ -3,7 +3,7 @@ from app.controllers.homeworks import router as HomeworkController
 
 app = FastAPI()
 
-app.include_router(HomeworkController, tags=["Homewrks"], prefix="/homeworks")
+app.include_router(HomeworkController, tags=["Homeworks"], prefix="/homeworks")
 
 
 @app.get("/", tags=["API Root"])
