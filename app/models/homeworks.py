@@ -47,7 +47,7 @@ class UpdateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
     tags: Optional[list]
-    is_done: bool[bool]
+    is_done: Optional[bool]
     work: Optional[str]
     user_id: Optional[int]
 
