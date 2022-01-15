@@ -4,3 +4,4 @@ regex==2020.11.13
 pydantic[email]
 pylint
 pylint-exit
+uvicorn
