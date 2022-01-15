@@ -23,8 +23,10 @@ class HomeworkModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     work_id: int
     deadline: datetime
+    tags: list
+    is_done: bool
     work: str
-    user_id: int
+    user_id: int 
 
     class Config:
         allow_population_by_field_name = True
@@ -35,6 +37,8 @@ class HomeworkModel(BaseModel):
                 "work_id": 1,
                 "deadline": "2019-03-22T18:30:00",
                 "work": "work1",
+                "is_done": False,
+                "tags":["exemple"],
                 "user_id": 1,
             }
         }
@@ -42,6 +46,8 @@ class HomeworkModel(BaseModel):
 class UpdateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
+    tags: Optional[list]
+    is_done: bool[bool]
     work: Optional[str]
     user_id: Optional[int]
 
@@ -53,6 +59,8 @@ class UpdateHomeworkModel(BaseModel):
             "example": {
                 "work_id": 1,
                 "deadline": "2019-03-22T18:30:00",
+                "is_done": False,
+                "tags":["exemple"],
                 "work": "work1",
                 "user_id": 1,
             }
