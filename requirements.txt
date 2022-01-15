@@ -5,3 +5,4 @@ pydantic[email]
 pylint
 pylint-exit
 uvicorn
+fastapi
