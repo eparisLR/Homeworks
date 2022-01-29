@@ -11,6 +11,7 @@ from app.database import (
 )
 
 from app.models.homeworks import (
+    CreateHomeworkModel,
     HomeworkModel
 )
 
@@ -40,7 +41,7 @@ async def post_homework(homework: HomeworkModel = Body(...)):
 
 
 @router.put("/{id}", response_model=HomeworkModel)
-async def put_homework(homework_id: str, req: HomeworkModel= Body(...)):
+async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
     homework = jsonable_encoder(req)
     updated_homework = await update_homework(homework_id, homework)
     if updated_homework:
