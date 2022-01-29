@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 from pydantic import BaseModel, Field
 from bson.objectid import ObjectId
 
@@ -23,7 +23,7 @@ class HomeworkModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     work_id: int
     deadline: datetime
-    tags: list
+    tags: List[str]
     is_done: bool
     work: str
     user_id: int 
@@ -47,7 +47,7 @@ class UpdateHomeworkModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     work_id: Optional[int]
     deadline: Optional[datetime]
-    tags: Optional[list]
+    tags: Optional[List[str]]
     is_done: Optional[bool]
     work: Optional[str]
     user_id: Optional[int]
@@ -70,7 +70,7 @@ class UpdateHomeworkModel(BaseModel):
 class CreateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
-    tags: Optional[list]
+    tags: Optional[List[str]]
     is_done: Optional[bool]
     work: Optional[str]
     user_id: Optional[int]
