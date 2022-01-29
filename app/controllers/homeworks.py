@@ -43,7 +43,7 @@ async def post_homework(homework: HomeworkModel = Body(...)):
 @router.put("/{id}", response_model=HomeworkModel)
 async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
     print(f'{req} La requete avant truc chelou')
-    req.tags = jsonable_encoder(req.tags)
+    req.tags = []
     req = {k: v for k, v in req.dict().items() if v is not None}
     print(f'{req} La requete après truc chelou')
     updated_homework = await update_homework(homework_id, req)
