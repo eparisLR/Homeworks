@@ -40,7 +40,7 @@ async def post_homework(homework: HomeworkModel = Body(...)):
     return new_homework
 
 
-@router.put("/{id}", response_model=HomeworkModel)
+@router.put("/{id}")
 async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
     print(f'{req} La requete avant truc chelou')
     req.tags = []
