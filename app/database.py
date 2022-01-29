@@ -35,6 +35,7 @@ async def update_homework(homework_id: str, data: dict):
     if len(data) < 1:
         return False
     homework = await homeworks_data.find_one({"_id": homework_id})
+    print(f'le homework trouvé {homework}')
     if homework:
         updated_homework = await homeworks_data.update_one(
             {"_id": id}, {"$set": data}
