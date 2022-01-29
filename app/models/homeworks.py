@@ -43,30 +43,6 @@ class HomeworkModel(BaseModel):
             }
         }
 
-class UpdateHomeworkModel(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
-    work_id: Optional[int]
-    deadline: Optional[datetime]
-    tags: Optional[List[str]]
-    is_done: Optional[bool]
-    work: Optional[str]
-    user_id: Optional[int]
-
-    class Config:
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
-        json_encoders = {ObjectId: str}
-        schema_extra = {
-            "example": {
-                "work_id": 1,
-                "deadline": "2019-03-22T18:30:00",
-                "is_done": False,
-                "tags":["exemple"],
-                "work": "work1",
-                "user_id": 1,
-            }
-        }
-
 class CreateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
