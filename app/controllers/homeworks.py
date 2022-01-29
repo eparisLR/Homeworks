@@ -41,7 +41,7 @@ async def post_homework(homework: HomeworkModel = Body(...)):
 
 
 @router.put("/{id}")
-async def put_homework(homework_id, req: CreateHomeworkModel= Body(...)):
+async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
     print(f'{req} La requete avant truc chelou')
     req.tags = []
     req = {k: v for k, v in req.dict().items() if v is not None}

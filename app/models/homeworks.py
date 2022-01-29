@@ -47,7 +47,7 @@ class HomeworkModel(BaseModel):
 class CreateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
-    tags: Optional[List[str]]
+    tags: Optional[dict[str]]
     is_done: Optional[bool]
     work: Optional[str]
     user_id: Optional[int]
