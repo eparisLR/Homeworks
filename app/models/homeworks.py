@@ -23,7 +23,7 @@ class HomeworkModel(BaseModel):
     id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
     work_id: int
     deadline: datetime
-    tags: dict[str]
+    tags: List[str]
     is_done: bool
     work: str
     user_id: int 
@@ -47,7 +47,7 @@ class HomeworkModel(BaseModel):
 class CreateHomeworkModel(BaseModel):
     work_id: Optional[int]
     deadline: Optional[datetime]
-    tags: Optional[dict[str]]
+    tags: Optional[List[str]]
     is_done: Optional[bool]
     work: Optional[str]
     user_id: Optional[int]
