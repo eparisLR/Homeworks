@@ -42,10 +42,8 @@ async def post_homework(homework: HomeworkModel = Body(...)):
 
 @router.put("/{id}")
 async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
-    print(f'{req} La requete avant truc chelou')
     req.tags = []
     req = {k: v for k, v in req.dict().items() if v is not None}
-    print(f'{req} La requete après truc chelou')
     updated_homework = await update_homework(homework_id, req)
     if updated_homework:
         return updated_homework
