@@ -38,7 +38,7 @@ async def update_homework(homework_id: str, data: dict):
     print(f'le homework trouvé {homework}')
     if homework:
         updated_homework = await homeworks_data.update_one(
-            {"_id": id}, {"$set": data}
+            {"_id": homework_id}, {"$set": data}
         )
         print(f'le homework updaté {updated_homework}')
         if updated_homework:
