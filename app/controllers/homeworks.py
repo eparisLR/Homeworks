@@ -11,8 +11,8 @@ from app.database import (
 )
 
 from app.models.homeworks import (
-    CreateHomeworkModel,
-    HomeworkModel
+    HomeworkModel,
+    UpdateHomeworkModel
 )
 
 router = APIRouter()
@@ -41,9 +41,11 @@ async def post_homework(homework: HomeworkModel = Body(...)):
 
 
 @router.put("/{id}", response_model=HomeworkModel)
-async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
-    homework = jsonable_encoder(req)
-    updated_homework = await update_homework(homework_id, homework)
+async def put_homework(homework_id: str, req: HomeworkModel= Body(...)):
+    print(f'{req} La requete avant truc chelou')
+    req = {k: v for k, v in req.dict().items() if v is not None}
+    print(f'{req} La requete après truc chelou')
+    updated_homework = await update_homework(homework_id, req)
     if updated_homework:
         return updated_homework
     return "There was an error updating UFO data"

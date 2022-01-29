@@ -34,6 +34,7 @@ class HomeworkModel(BaseModel):
         json_encoders = {ObjectId: str}
         schema_extra = {
             "example": {
+                "_id" : "61e3431c2cb2a5a5d0a29052",
                 "work_id": 1,
                 "deadline": "2019-03-22T18:30:00",
                 "work": "work1",
