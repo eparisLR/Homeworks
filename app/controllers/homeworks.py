@@ -11,8 +11,7 @@ from app.database import (
 )
 
 from app.models.homeworks import (
-    HomeworkModel,
-    UpdateHomeworkModel
+    HomeworkModel
 )
 
 router = APIRouter()
