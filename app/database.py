@@ -40,7 +40,7 @@ async def update_homework(homework_id: str, data: dict):
             {"_id": homework_id}, {"$set": data}
         )
         if updated_homework:
-            return True
+            return updated_homework
         return False
 
 
