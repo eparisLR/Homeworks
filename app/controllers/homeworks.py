@@ -22,7 +22,7 @@ async def get_homeworks():
     homeworks = await retrieve_homeworks()
     if homeworks:
         return homeworks
-    return "Empty list returned"
+    return {"message" : "Empty list returned"}
 
 @router.get("/{id}", response_description="Get Homework by ID", response_model=HomeworkModel)
 async def get_homework(homework_id):
@@ -30,7 +30,7 @@ async def get_homework(homework_id):
     print(homework)
     if homework:
         return homework
-    return "UFO doesn't exist"
+    return {"message" : "Homework doesn't exist"}
 
 
 @router.post("/", response_description="Homework data added into the database")
@@ -47,12 +47,12 @@ async def put_homework(homework_id: str, req: CreateHomeworkModel= Body(...)):
     updated_homework = await update_homework(homework_id, req)
     if updated_homework:
         return updated_homework
-    return "There was an error updating UFO data"
+    return {"message" : "There was an error updating homework data"}
 
 @router.delete("/{id}", response_description="Homework data deleted from the database")
 async def delete_homework(homework_id: str):
     deleted_homework = await remove_homework(homework_id)
     if deleted_homework:
-        return f"Homework with ID: {homework_id} removed successfully"
+        return {"message" :"Homework removed successfully"}
 
-    return f"Homework with id {homework_id} doesn't exist"
+    return {"message" :"Homework doesn't exist"}
